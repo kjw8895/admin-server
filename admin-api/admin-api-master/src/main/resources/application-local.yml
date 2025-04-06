@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - application-core-local.yml
+
+redisson:
+  host: redis://localhost:6379
+

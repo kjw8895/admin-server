@@ -2,8 +2,7 @@ dependencies {
     implementation project(':admin-common')
     implementation project(':admin-core')
     implementation project(':admin-api:admin-api-common')
-//    implementation project(':admin-client:redisson')
-//    implementation project(':admin-client:aws-s3')
+    implementation project(':admin-client:redisson')
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
