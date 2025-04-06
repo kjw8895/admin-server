@@ -1,0 +1,8 @@
+bootJar.enabled = false
+jar.enabled = true
+
+dependencies {
+    implementation project(':admin-common')
+
+    implementation 'org.redisson:redisson-spring-boot-starter:3.17.7'
+}
