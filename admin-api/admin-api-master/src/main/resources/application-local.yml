@@ -11,3 +11,14 @@ spring:
 redisson:
   host: redis://localhost:6379
 
+aws:
+  s3:
+    credential:
+      enabled: true
+      accessKey: ${AWS_ACCESS_KEY}
+      secretKey: ${AWS_SECRET_KEY}
+    region: ${AWS_REGION}
+    bucket: ${BUCKET}
+    attachment-path: attachment
+    base-url: https://hocade.s3.ap-northeast-2.amazonaws.com
+

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 public enum CommonExceptionCode implements ExceptionCodeEnum {
+    ACCESS_DENIED(1000, "Access denied.", HttpStatus.FORBIDDEN),
     UNKNOWN_SEVER_ERROR(1000, "Unknown server error", HttpStatus.INTERNAL_SERVER_ERROR),
     INVALID_REQUEST(1001, "Invalid request", HttpStatus.BAD_REQUEST),
     NOT_FOUND_RESOURCE(1002, "Not found resource", HttpStatus.NOT_FOUND),

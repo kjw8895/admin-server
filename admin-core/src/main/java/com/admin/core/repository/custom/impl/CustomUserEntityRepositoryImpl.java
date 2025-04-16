@@ -27,7 +27,7 @@ public class CustomUserEntityRepositoryImpl extends QuerydslRepositorySupport im
     }
 
     @Override
-    public Page<UserVo> fetch(Pageable pageable, UserSearchCondition condition) {
+    public Page<UserVo> page(Pageable pageable, UserSearchCondition condition) {
         List<Long> userIds = from(USER)
                 .join(USER.roles, USER_ROLE)
                 .join(USER_ROLE.role, ROLE)

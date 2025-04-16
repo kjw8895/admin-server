@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page<UserVo> page(Pageable pageable, UserSearchCondition condition) {
-        return userEntityRepository.fetch(pageable, condition);
+        return userEntityRepository.page(pageable, condition);
     }
 
     @Override

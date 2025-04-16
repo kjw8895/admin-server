@@ -2,6 +2,7 @@ package com.admin.api.master.config;
 
 import com.admin.api.common.constant.WebConstant;
 import com.admin.common.application.dto.UserInfo;
+import com.admin.common.code.CommonExceptionCode;
 import com.admin.common.code.RoleType;
 import com.admin.common.context.UserContext;
 import jakarta.servlet.FilterChain;
@@ -35,6 +36,15 @@ public class UserContextFilter extends OncePerRequestFilter {
             if (id != null && email != null) {
                 List<String> roleList = Arrays.asList(roles.split(","));
                 UserContext.set(new UserInfo(Long.parseLong(id), email, status, roleList.stream().map(RoleType::valueOf).toList()));
+
+                boolean hasRole = roleList.stream()
+                        .map(String::trim)
+                        .anyMatch(role -> role.equals(RoleType.ROLE_ADMIN.getCode()));
+
+                if (!hasRole) {
+                    response.sendError(HttpServletResponse.SC_FORBIDDEN, CommonExceptionCode.ACCESS_DENIED.getMsg());
+                    return;
+                }
             }
 
             filterChain.doFilter(request, response);

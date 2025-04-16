@@ -4,4 +4,5 @@ include 'admin-core'
 include 'admin-api:admin-api-common'
 include 'admin-api:admin-api-master'
 include 'admin-client:redisson'
+include 'admin-client:aws-s3'
 
